@@ -405,7 +405,7 @@
                         </div>
                         <div class="form-group mt-2 mb-2">
                             <label for="jumlah">Jumlah:</label>
-                            <input type="text" name="f_jumlah" class="form-control" required>
+                            <input type="text" id="jumlah" name="f_jumlah" class="form-control" required oninput="formatRupiah(this)" onblur="removeNonNumeric(this)">
                         </div>
                         <div class="form-group mt-2 mb-2">
                             <label for="deskripsi">Deskripsi:</label>
