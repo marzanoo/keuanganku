@@ -161,7 +161,7 @@
                 </div>
                 <div class="form-group">
                     <label for="jumlah">Jumlah:</label>
-                    <input type="number" name="f_jumlah" class="form-control" required>
+                    <input type="text" id="jumlah" name="f_jumlah" class="form-control" required oninput="formatRupiah(this)" onblur="removeNonNumeric(this)">
                 </div>
                 <button type="submit" class="btn btn-success mt-3">Ubah</button>
             </form>
@@ -185,7 +185,7 @@
                 </div>
                 <div class="form-group mt-2 mb-2">
                     <label for="f_jumlah">Jumlah Transfer:</label>
-                    <input type="number" name="f_jumlah" class="form-control" required>
+                    <input type="text" id="jumlah" name="f_jumlah" class="form-control" required oninput="formatRupiah(this)" onblur="removeNonNumeric(this)">
                 </div>
                 <button type="submit" class="btn btn-success mt-3">Pindahkan Dana</button>
             </form>
@@ -255,6 +255,25 @@
     </div>
 </div>
 <script>
+    function formatRupiah(element) {
+        // Ambil nilai asli tanpa format
+        let value = element.value.replace(/[^\d]/g, "");
+
+        // Format menjadi Rupiah
+        let formattedValue = new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0
+        }).format(value);
+
+        // Tampilkan nilai terformat di input
+        element.value = formattedValue;
+    }
+
+    function removeNonNumeric(element) {
+        // Kembalikan nilai ke angka saja saat blur agar bisa dikirim ke database
+        element.value = element.value.replace(/[^\d]/g, "");
+    }
     function openTransferModal() {
         document.getElementById("transferModal").style.display = "flex";
     }
