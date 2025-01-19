@@ -189,7 +189,7 @@
                 </div>            
                 <div class="form-group">
                     <label for="jumlah">Jumlah:</label>
-                    <input type="number" name="f_jumlah" class="form-control" required>
+                    <input type="text" id="jumlah" name="f_jumlah" class="form-control" required oninput="formatRupiah(this)" onblur="removeNonNumeric(this)">
                 </div>
                 <div class="form-group">
                     <label for="sumber">Sumber:</label>
@@ -216,7 +216,7 @@
                 </div>
                 <div class="form-group">
                     <label for="jumlah">Jumlah:</label>
-                    <input type="number" name="f_jumlah" class="form-control" required>
+                    <input type="text" id="jumlah" name="f_jumlah" class="form-control" required oninput="formatRupiah(this)" onblur="removeNonNumeric(this)">
                 </div>
                 <div class="form-group">
                     <label for="sumber">Sumber:</label>
